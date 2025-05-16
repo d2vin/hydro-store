@@ -37,7 +37,7 @@ export default function Index() {
           <h1 className="text-2xl font-light tracking-widest">BEDLAM</h1>
           <button
             onClick={toggleMenu}
-            className="z-50 relative"
+            className="z-40 relative"
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
           >
             <AnimatePresence mode="wait">

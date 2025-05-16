@@ -6,8 +6,8 @@ const Orb: React.FC = () => {
       className="relative flex justify-center items-center w-screen"
       style={{height: 'calc(100vh - 64px)'}}
     >
-      <div className="absolute inset-0 flex items-center justify-center text-4xl z-50">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r via-[#DF843D] to-[#3D7D46] from-[#D63C33] font-mono hover:underline hover:text-white hover:cursor-pointer">
+      <div className="absolute inset-0 flex items-center justify-center text-4xl">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r via-[#DF843D] to-[#3D7D46] from-[#D63C33] font-mono hover:underline hover:text-white hover:cursor-pointer z-40">
           enter
         </span>
       </div>
