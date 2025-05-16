@@ -164,7 +164,9 @@ export function Layout({children}: {children?: React.ReactNode}) {
             shop={data.shop}
             consent={data.consent}
           >
-            <PageLayout {...data}>{children}</PageLayout>
+            <PageLayout {...data}>
+              {children}
+            </PageLayout>
           </Analytics.Provider>
         ) : (
           children
