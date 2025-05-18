@@ -58,7 +58,7 @@ export default function MenuButtonWithOverlay() {
           >
             <div className="relative w-full h-full">
               <nav className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-                <ul className="relative">
+                <ul className="relative -translate-x-10 -translate-y-2">
                   {menuItems.map((item, index) => (
                     <motion.li
                       key={item.name}
@@ -116,7 +116,7 @@ export default function MenuButtonWithOverlay() {
               {/* Optional decorative circles */}
               <motion.div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border rounded-full"
-                style={{borderColor: 'rgba(43, 44, 111, 0.1)'}}
+                style={{borderColor: 'white'}}
                 initial={{scale: 0, rotate: 0}}
                 animate={{scale: 1, rotate: 180}}
                 exit={{scale: 0, rotate: 0}}
@@ -124,7 +124,7 @@ export default function MenuButtonWithOverlay() {
               />
               <motion.div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border rounded-full"
-                style={{borderColor: 'rgba(223, 132, 60, 0.05)'}}
+                style={{borderColor: 'white'}}
                 initial={{scale: 0, rotate: 0}}
                 animate={{scale: 1, rotate: -180}}
                 exit={{scale: 0, rotate: 0}}
