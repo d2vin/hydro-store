@@ -35,9 +35,9 @@ export function ProductItem({
           sizes="(min-width: 45em) 400px, 100vw"
         />
       )}
-      <h4>{product.title}</h4>
+      <h4 className='bg-white'>{product.title}</h4>
       <small>
-        <Money data={product.priceRange.minVariantPrice} />
+        <Money className='bg-white' data={product.priceRange.minVariantPrice} />
       </small>
     </Link>
   );

@@ -1,6 +1,6 @@
 import {type LoaderFunctionArgs} from '@shopify/remix-oxygen';
 import {Await, useLoaderData, Link, type MetaFunction} from '@remix-run/react';
-import {Suspense} from 'react';
+import {Suspense, useState} from 'react';
 import {Image, Money} from '@shopify/hydrogen';
 import type {
   FeaturedCollectionFragment,
@@ -59,11 +59,28 @@ function loadDeferredData({context}: LoaderFunctionArgs) {
 
 export default function Homepage() {
   const data = useLoaderData<typeof loader>();
+  const [showRecommendations, setShowRecommendations] = useState(false);
+
+  const handleOrbClick = () => {
+    setShowRecommendations(!showRecommendations);
+  };
   return (
     <div className="home flex flex-col items-center justify-center">
-      <Orb />
-      <FeaturedCollection collection={data.featuredCollection} />
-      <RecommendedProducts products={data.recommendedProducts} />
+      <div className={`fixed top-0 ${showRecommendations ? '-z-10' : ''}`}>
+        <Orb onClick={handleOrbClick} />
+      </div>
+
+      {/* <FeaturedCollection collection={data.featuredCollection} /> */}
+
+      <div
+        className={`opacity-0 transition-opacity ${
+          showRecommendations
+            ? 'opacity-100 duration-1000'
+            : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <RecommendedProducts products={data.recommendedProducts} />
+      </div>
     </div>
   );
 }
@@ -96,15 +113,17 @@ function RecommendedProducts({
   products: Promise<RecommendedProductsQuery | null>;
 }) {
   return (
-    <div className="recommended-products">
-      <h2>Recommended Products</h2>
+    <div className="recommended-products mt-[50%]">
       <Suspense fallback={<div>Loading...</div>}>
         <Await resolve={products}>
           {(response) => (
-            <div className="recommended-products-grid">
+            <div className="">
               {response
                 ? response.products.nodes.map((product) => (
-                    <ProductItem key={product.id} product={product} />
+                    <>
+                      <ProductItem key={product.id} product={product} />
+                      <div className="h-4"/>
+                    </>
                   ))
                 : null}
             </div>

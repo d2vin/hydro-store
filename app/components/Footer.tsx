@@ -59,6 +59,7 @@ function FooterMenu({
           </a>
         ) : (
           <NavLink
+            className="!text-black"
             end
             key={item.id}
             prefetch="intent"
